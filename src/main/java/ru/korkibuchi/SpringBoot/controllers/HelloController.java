@@ -40,4 +40,15 @@ public class HelloController {
         model.addAttribute("cat", catRequst.getFile());
         return "hello";
     }
+    @GetMapping("/catgif")
+    public String catGif(Model model){
+        RestTemplate restTemplate1 = new RestTemplate();
+        CatRequst catRequst2;
+        do{ catRequst2=restTemplate1.getForObject("https://aws.random.cat/meow", CatRequst.class);
+        catRequst2.formatString();}
+        while (!catRequst2.getFile().endsWith(".gif"));
+        model.addAttribute("cat", catRequst2.getFile());
+        return "hello";
+
+    }
 }
