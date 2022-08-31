@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8" >
     <title>Cat show</title>
-    <meta http-equiv="refresh" content="3">
+
 </head>
 <body>
 
 <img th:src="${cat}" width="100%">
-<form>
-    <p><input formmethod="get" formaction="cat" type="button" value=" Нажми меня нежно "></p>
+<form th:method="GET" th:action="@{/cat}">
+    <p><input type="submit" value=" Нажми меня нежно "></p>
 </form>
 </body>
 </html>
